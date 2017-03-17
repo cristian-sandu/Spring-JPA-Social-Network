@@ -322,3 +322,18 @@ INSERT INTO addresses VALUES (NULL, 10, 6);
 INSERT INTO addresses VALUES (NULL, 11, 4);
 INSERT INTO addresses VALUES (NULL, 12, 7);
 INSERT INTO addresses VALUES (NULL, 13, 3);
+
+/*------------------INSERT INTO Official Details------------------------*/
+INSERT INTO official_details
+VALUES (NULL, 'Universitatea de Stat din Moldova', 'usm@gmail.com', '+373 22 577 401', 'www.usm.md');
+
+INSERT INTO official_details
+VALUES (NULL, 'Academia de Studii Economice din Moldova', 'asem@gmail.com', '+373 24 557 461', 'www.asem.md');
+
+INSERT INTO official_details
+VALUES (NULL, 'University of Cambridge', 'cambridge@gbmail.com', '+44 1223 337733', 'cam.ac.uk');
+
+INSERT INTO official_details
+VALUES (NULL, 'Free University Of Berlin', 'freeu@gmail.com', ' +49 30 8381', 'fu-berlin.de');
+
+INSERT INTO official_details VALUES (NULL, 'Matematica si Informatica', )
