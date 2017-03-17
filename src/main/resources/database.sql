@@ -226,6 +226,7 @@ CREATE TABLE streets (
   post_code     VARCHAR(100)
 )
   ENGINE = InnoDB;
+/*ALTER TABLE streets MODIFY COLUMN street_number varchar(20);*/
 
 /*-------------------------Cities--------------------------------*/
 CREATE TABLE cities (
@@ -248,8 +249,7 @@ CREATE TABLE countries (
 
 /*Sample Data*/
 
-/*INSERT INTO COUNTRIES*/
-
+/*------------------INSERT INTO COUNTRIES------------------------*/
 INSERT INTO countries VALUES (NULL, 'Moldova', 'MD');
 INSERT INTO countries VALUES (NULL, 'Russia', 'RU');
 INSERT INTO countries VALUES (NULL, 'Romania', 'RO');
@@ -264,7 +264,7 @@ SELECT *
 FROM countries
 ORDER BY id;
 
-/*INSERT INTO CITIES*/
+/*------------------INSERT INTO CITIES------------------------*/
 INSERT INTO cities VALUES (NULL, 'Chisinau', 1);
 INSERT INTO cities VALUES (NULL, 'Balti', 1);
 INSERT INTO cities VALUES (NULL, 'Edinet', 1);
@@ -284,9 +284,41 @@ INSERT INTO cities VALUES (NULL, 'Tokyo', 9);
 SELECT *
 FROM cities;
 
+/*Countries with their cities */
 SELECT
   countries.official_name,
   cities.name
 FROM countries
   INNER JOIN cities
     ON countries.id = cities.country_id;
+
+/*------------------INSERT INTO STREETS------------------------*/
+INSERT INTO streets VALUES (NULL, 'Stefan Cel Mare', '2/4', 2000);
+INSERT INTO streets VALUES (NULL, 'Mihail Kogalniceanu', '6/10', 2012);
+INSERT INTO streets VALUES (NULL, 'Bill Clinton', '2/13', 2009);
+INSERT INTO streets VALUES (NULL, 'Abraham Lincoln', '4/16', 2003);
+INSERT INTO streets VALUES (NULL, 'Alexandr Puskin', '6/18', 2017);
+INSERT INTO streets VALUES (NULL, 'Joe Dassin', '9/17', 2019);
+INSERT INTO streets VALUES (NULL, 'Adolf Hitler', '3/13', 2011);
+
+SELECT *
+FROM streets
+ORDER BY id;
+
+/*------------------INSERT INTO Addresses------------------------*/
+INSERT INTO addresses VALUES (NULL, 1, 1);
+INSERT INTO addresses VALUES (NULL, 1, 2);
+
+INSERT INTO addresses VALUES (NULL, 2, 1);
+INSERT INTO addresses VALUES (NULL, 3, 2);
+INSERT INTO addresses VALUES (NULL, 4, 2);
+INSERT INTO addresses VALUES (NULL, 5, 1);
+
+INSERT INTO addresses VALUES (NULL, 6, 5);
+INSERT INTO addresses VALUES (NULL, 7, 1);
+INSERT INTO addresses VALUES (NULL, 8, 7);
+INSERT INTO addresses VALUES (NULL, 9, 3);
+INSERT INTO addresses VALUES (NULL, 10, 6);
+INSERT INTO addresses VALUES (NULL, 11, 4);
+INSERT INTO addresses VALUES (NULL, 12, 7);
+INSERT INTO addresses VALUES (NULL, 13, 3);

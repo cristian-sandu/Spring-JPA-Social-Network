@@ -503,7 +503,7 @@ web_page</ColNames>
     </column>
     <column id="129" parent="24" name="street_number">
       <Position>3</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>varchar(20)|0</DataType>
     </column>
     <column id="130" parent="24" name="post_code">
       <Position>4</Position>
