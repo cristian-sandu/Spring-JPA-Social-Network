@@ -13,7 +13,6 @@ CREATE TABLE users (
   address_id  INT           NOT NULL,
 
   FOREIGN KEY fk_gender_id(gender_id) REFERENCES genders (id),
-  FOREIGN KEY fk_address_id (address_id) REFERENCES addresses (id),
 
   UNIQUE (username, email)
 )
@@ -31,7 +30,7 @@ CREATE TABLE genders (
 /*-------------------------ROLES--------------------------------*/
 CREATE TABLE roles (
   id   INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  type VARCHAR(255) NOT NULL DEFAULT 'ANONYMUS',
+  type VARCHAR(255) NOT NULL DEFAULT ''ANONYMUS'',
 
   UNIQUE (type)
 )
@@ -152,8 +151,6 @@ CREATE TABLE specializations (
   specialty_id  INT          NOT NULL,
 
   FOREIGN KEY fk_specialty_id (specialty_id) REFERENCES specialties (id),
-
-  UNIQUE (year_of_study)
 )
   ENGINE = InnoDB;
 
@@ -250,35 +247,35 @@ CREATE TABLE countries (
 /*Sample Data*/
 
 /*------------------INSERT INTO COUNTRIES------------------------*/
-INSERT INTO countries VALUES (NULL, 'Moldova', 'MD');
-INSERT INTO countries VALUES (NULL, 'Russia', 'RU');
-INSERT INTO countries VALUES (NULL, 'Romania', 'RO');
-INSERT INTO countries VALUES (NULL, 'Germania', 'DE');
-INSERT INTO countries VALUES (NULL, 'Great Britain', 'GB');
-INSERT INTO countries VALUES (NULL, 'Australia', 'AU');
-INSERT INTO countries VALUES (NULL, 'Brazil', 'BR');
-INSERT INTO countries VALUES (NULL, 'Canada', 'CA');
-INSERT INTO countries VALUES (NULL, 'Japan', 'JP');
+INSERT INTO countries VALUES (NULL, ''Moldova'', ''MD'');
+INSERT INTO countries VALUES (NULL, ''Russia'', ''RU'');
+INSERT INTO countries VALUES (NULL, ''Romania'', ''RO'');
+INSERT INTO countries VALUES (NULL, ''Germania'', ''DE'');
+INSERT INTO countries VALUES (NULL, ''Great Britain'', ''GB'');
+INSERT INTO countries VALUES (NULL, ''Australia'', ''AU'');
+INSERT INTO countries VALUES (NULL, ''Brazil'', ''BR'');
+INSERT INTO countries VALUES (NULL, ''Canada'', ''CA'');
+INSERT INTO countries VALUES (NULL, ''Japan'', ''JP'');
 
 SELECT *
 FROM countries
 ORDER BY id;
 
 /*------------------INSERT INTO CITIES------------------------*/
-INSERT INTO cities VALUES (NULL, 'Chisinau', 1);
-INSERT INTO cities VALUES (NULL, 'Balti', 1);
-INSERT INTO cities VALUES (NULL, 'Edinet', 1);
-INSERT INTO cities VALUES (NULL, 'Orhei', 1);
-INSERT INTO cities VALUES (NULL, 'Sangerei', 1);
+INSERT INTO cities VALUES (NULL, ''Chisinau'', 1);
+INSERT INTO cities VALUES (NULL, ''Balti'', 1);
+INSERT INTO cities VALUES (NULL, ''Edinet'', 1);
+INSERT INTO cities VALUES (NULL, ''Orhei'', 1);
+INSERT INTO cities VALUES (NULL, ''Sangerei'', 1);
 
-INSERT INTO cities VALUES (NULL, 'Moskow', 2);
-INSERT INTO cities VALUES (NULL, 'Bucharest', 3);
-INSERT INTO cities VALUES (NULL, 'Berlin', 4);
-INSERT INTO cities VALUES (NULL, 'London', 5);
-INSERT INTO cities VALUES (NULL, 'Canberra', 6);
-INSERT INTO cities VALUES (NULL, 'Rio de Janeiro', 7);
-INSERT INTO cities VALUES (NULL, 'Ottawa', 8);
-INSERT INTO cities VALUES (NULL, 'Tokyo', 9);
+INSERT INTO cities VALUES (NULL, ''Moskow'', 2);
+INSERT INTO cities VALUES (NULL, ''Bucharest'', 3);
+INSERT INTO cities VALUES (NULL, ''Berlin'', 4);
+INSERT INTO cities VALUES (NULL, ''London'', 5);
+INSERT INTO cities VALUES (NULL, ''Canberra'', 6);
+INSERT INTO cities VALUES (NULL, ''Rio de Janeiro'', 7);
+INSERT INTO cities VALUES (NULL, ''Ottawa'', 8);
+INSERT INTO cities VALUES (NULL, ''Tokyo'', 9);
 
 
 SELECT *
@@ -293,13 +290,13 @@ FROM countries
     ON countries.id = cities.country_id;
 
 /*------------------INSERT INTO STREETS------------------------*/
-INSERT INTO streets VALUES (NULL, 'Stefan Cel Mare', '2/4', 2000);
-INSERT INTO streets VALUES (NULL, 'Mihail Kogalniceanu', '6/10', 2012);
-INSERT INTO streets VALUES (NULL, 'Bill Clinton', '2/13', 2009);
-INSERT INTO streets VALUES (NULL, 'Abraham Lincoln', '4/16', 2003);
-INSERT INTO streets VALUES (NULL, 'Alexandr Puskin', '6/18', 2017);
-INSERT INTO streets VALUES (NULL, 'Joe Dassin', '9/17', 2019);
-INSERT INTO streets VALUES (NULL, 'Adolf Hitler', '3/13', 2011);
+INSERT INTO streets VALUES (NULL, ''Stefan Cel Mare'', ''2 / 4'', 2000);
+INSERT INTO streets VALUES (NULL, ''Mihail Kogalniceanu'', ''6 / 10'', 2012);
+INSERT INTO streets VALUES (NULL, ''Bill Clinton'', ''2 / 13'', 2009);
+INSERT INTO streets VALUES (NULL, ''Abraham Lincoln'', ''4 / 16'', 2003);
+INSERT INTO streets VALUES (NULL, ''Alexandr Puskin'', ''6 / 18'', 2017);
+INSERT INTO streets VALUES (NULL, ''Joe Dassin'', ''9 / 17'', 2019);
+INSERT INTO streets VALUES (NULL, ''Adolf Hitler'', ''3 / 13'', 2011);
 
 SELECT *
 FROM streets
@@ -325,15 +322,182 @@ INSERT INTO addresses VALUES (NULL, 13, 3);
 
 /*------------------INSERT INTO Official Details------------------------*/
 INSERT INTO official_details
-VALUES (NULL, 'Universitatea de Stat din Moldova', 'usm@gmail.com', '+373 22 577 401', 'www.usm.md');
+VALUES (NULL, ''Universitatea de Stat din Moldova'', ''usm@gmail.com'', '' + 373 22 577 401'', ''www.usm.md'');
 
 INSERT INTO official_details
-VALUES (NULL, 'Academia de Studii Economice din Moldova', 'asem@gmail.com', '+373 24 557 461', 'www.asem.md');
+VALUES (NULL, ''Academia de Studii Economice din Moldova'', ''asem@gmail.com'', '' + 373 24 557 461'', ''www.asem.md'');
 
 INSERT INTO official_details
-VALUES (NULL, 'University of Cambridge', 'cambridge@gbmail.com', '+44 1223 337733', 'cam.ac.uk');
+VALUES (NULL, ''University of Cambridge'', ''cambridge@gbmail.com'', '' + 44 1223 337733'', ''cam.ac.uk'');
 
 INSERT INTO official_details
-VALUES (NULL, 'Free University Of Berlin', 'freeu@gmail.com', ' +49 30 8381', 'fu-berlin.de');
+VALUES (NULL, ''Free University Of Berlin'', ''freeu@gmail.com'', '' + 49 30 8381'', ''fu - berlin.de'');
 
-INSERT INTO official_details VALUES (NULL, 'Matematica si Informatica', )
+INSERT INTO official_details
+VALUES (NULL, ''Matematica si Informatica'', ''fmi@usm.md'', '' + 373 22 45 54 78'', ''www.fmi.md'');
+INSERT INTO official_details VALUES (NULL, ''Law'', ''law@usm.md'', '' + 373 24 55 21 32'', ''www.law.md'');
+INSERT INTO official_details VALUES (NULL, ''Psychology'', ''pshy@usm.md'', '' + 373 22 44 55 11'', ''www.pshy.md'');
+
+SELECT *
+FROM official_details;
+
+/*------------------INSERT INTO University------------------------*/
+INSERT INTO universities VALUES (NULL, 1, 1);
+INSERT INTO universities VALUES (NULL, 2, 2);
+INSERT INTO universities VALUES (NULL, 3, 7);
+INSERT INTO universities VALUES (NULL, 4, 8);
+INSERT INTO universities VALUES (NULL, 5, 9);
+INSERT INTO universities VALUES (NULL, 6, 10);
+INSERT INTO universities VALUES (NULL, 7, 11);
+
+SELECT *
+FROM universities;
+
+
+/*------------------INSERT INTO Faculties------------------------*/
+INSERT INTO faculties VALUES (NULL, 5, 1);
+INSERT INTO faculties VALUES (NULL, 6, 2);
+INSERT INTO faculties VALUES (NULL, 7, 3);
+INSERT INTO faculties VALUES (NULL, 5, 4);
+INSERT INTO faculties VALUES (NULL, 6, 1);
+INSERT INTO faculties VALUES (NULL, 7, 2);
+INSERT INTO faculties VALUES (NULL, 5, 3);
+
+SELECT *
+FROM faculties;
+
+/*------------------INSERT INTO Specialties------------------------*/
+INSERT INTO specialties VALUES (NULL, ''Informatics'', 1);
+INSERT INTO specialties VALUES (NULL, ''Law & Justice'', 2);
+INSERT INTO specialties VALUES (NULL, ''Psychology Clinique'', 3);
+
+
+INSERT INTO specialties VALUES (NULL, ''Applied IT'', 4);
+INSERT INTO specialties VALUES (NULL, ''Justice'', 5);
+INSERT INTO specialties VALUES (NULL, ''MEMORY Reflexes'', 6);
+
+SELECT *
+FROM specialties;
+
+/*------------------INSERT INTO Specializations------------------------*/
+INSERT INTO specializations VALUES (NULL, ''Programming'', 1, 1);
+INSERT INTO specializations VALUES (NULL, ''Human Rights'', 2, 2);
+INSERT INTO specializations VALUES (NULL, ''Logix'', 3, 3);
+
+INSERT INTO specializations VALUES (NULL, ''Web Design'', 2, 4);
+INSERT INTO specializations VALUES (NULL, ''Mass Media Rights'', 3, 5);
+INSERT INTO specializations VALUES (NULL, ''Emotions AND Feelings'', 2, 6);
+
+SELECT *
+FROM specializations;
+
+UPDATE specializations
+SET id = 6
+WHERE id = 7;
+
+/*------------------INSERT INTO Groups------------------------*/
+INSERT INTO groups VALUES (NULL, ''I - 11'', 1);
+INSERT INTO groups VALUES (NULL, ''HR - 23'', 2);
+INSERT INTO groups VALUES (NULL, ''PSH - 31'', 3);
+
+INSERT INTO groups VALUES (NULL, ''WD - 21'', 4);
+INSERT INTO groups VALUES (NULL, ''MM - 33'', 5);
+INSERT INTO groups VALUES (NULL, ''E & F - 24'', 6);
+
+SELECT *
+FROM groups;
+
+/*------------------INSERT INTO Courses------------------------*/
+INSERT INTO courses VALUES (NULL, ''Java'', 6);
+INSERT INTO courses VALUES (NULL, ''Rights & Concepts'', 4);
+INSERT INTO courses VALUES (NULL, ''Brain'', 3);
+
+INSERT INTO courses VALUES (NULL, ''HTML & CSS'', 5);
+INSERT INTO courses VALUES (NULL, ''Lawsuits'', 6);
+INSERT INTO courses VALUES (NULL, ''Emotions control'', 3);
+
+SELECT *
+FROM courses;
+
+/*------------------INSERT INTO Courses-Specializations------------------------*/
+INSERT INTO courses_specializations VALUES (1, 1);
+INSERT INTO courses_specializations VALUES (2, 2);
+INSERT INTO courses_specializations VALUES (2, 6);
+INSERT INTO courses_specializations VALUES (3, 3);
+INSERT INTO courses_specializations VALUES (6, 3);
+INSERT INTO courses_specializations VALUES (4, 4);
+INSERT INTO courses_specializations VALUES (4, 1);
+
+SELECT *
+FROM courses_specializations;
+
+/*------------------INSERT INTO Class-Rooms------------------------*/
+INSERT INTO classrooms (number) VALUES (23);
+INSERT INTO classrooms (number) VALUES (333);
+INSERT INTO classrooms (number) VALUES (223);
+
+INSERT INTO classrooms (number) VALUES (542);
+INSERT INTO classrooms (number) VALUES (152);
+INSERT INTO classrooms (number) VALUES (352);
+
+SELECT *
+FROM classrooms;
+
+/*------------------INSERT INTO Courses-Rooms------------------------*/
+INSERT INTO courses_rooms VALUES (1, 6);
+INSERT INTO courses_rooms VALUES (1, 4);
+INSERT INTO courses_rooms VALUES (2, 5);
+INSERT INTO courses_rooms VALUES (3, 5);
+INSERT INTO courses_rooms VALUES (3, 1);
+INSERT INTO courses_rooms VALUES (4, 4);
+INSERT INTO courses_rooms VALUES (4, 3);
+INSERT INTO courses_rooms VALUES (5, 2);
+INSERT INTO courses_rooms VALUES (6, 2);
+
+SELECT *
+FROM courses_rooms;
+
+/*------------------INSERT INTO Teacher statutes------------------------*/
+INSERT INTO teacher_statutes (teacher_type) VALUES (''Teacher'');
+INSERT INTO teacher_statutes (teacher_type) VALUES (''ProDean'');
+INSERT INTO teacher_statutes (teacher_type) VALUES (''Dean'');
+INSERT INTO teacher_statutes (teacher_type) VALUES (''Rector'');
+
+SELECT *
+FROM teacher_statutes;
+
+
+/*------------------INSERT INTO Teachers------------------------*/
+INSERT INTO teachers VALUES (NULL, 1, 2);
+/* user 2- teacher-Epifanova Irina*/
+
+INSERT INTO teachers VALUES (NULL, 2, 3);
+/* user 3- ProDean- Capcelea Titu*/
+
+INSERT INTO teachers VALUES (NULL, 3, 4);
+/*user 4- Dean - Rusu Galina */
+
+INSERT INTO teachers VALUES (NULL, 4, 5);
+/*user 5- Rector - Cicocanu Gheorghe*/
+
+SELECT *
+FROM teachers;
+
+
+/*------------------INSERT INTO genders------------------------*/
+INSERT INTO genders (type) VALUES (''man'');
+INSERT INTO genders (type) VALUES (''woman'');
+
+SELECT *
+FROM genders;
+/*------------------INSERT INTO users------------------------*/
+
+INSERT INTO users VALUES
+  (NULL, ''Sandu_Cristi'', ''number23'', ''Sandu'', ''Cristian'', 1, 01 / 07 / 1996, ''0 - 60 - 47 - 20 - 85'',
+   ''sandu.cristian@mail.ru'',
+   ''link photo url'');
+SELECT *
+FROM users;
+
+UPDATE users
+SET birthdate =''01 - 07 - 1996'' WHERE id = 1;
