@@ -50,10 +50,10 @@
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="34" parent="9" name="city_id">
+    <index id="34" parent="9" name="fk_city_id">
       <ColNames>city_id</ColNames>
     </index>
-    <index id="35" parent="9" name="street_id">
+    <index id="35" parent="9" name="fk_street_id">
       <ColNames>street_id</ColNames>
     </index>
     <key id="36" parent="9" name="PRIMARY">
@@ -87,7 +87,7 @@
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="42" parent="10" name="country_id">
+    <index id="42" parent="10" name="fk_country_id">
       <ColNames>country_id</ColNames>
     </index>
     <key id="43" parent="10" name="PRIMARY">
@@ -181,10 +181,10 @@ ISO</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="62" parent="14" name="classroom_id">
+    <index id="62" parent="14" name="fk_classroom_id">
       <ColNames>classroom_id</ColNames>
     </index>
-    <index id="63" parent="14" name="course_id">
+    <index id="63" parent="14" name="fk_course_id">
       <ColNames>course_id</ColNames>
     </index>
     <foreign-key id="64" parent="14" name="courses_rooms_ibfk_1">
@@ -209,10 +209,10 @@ ISO</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="68" parent="15" name="course_id">
+    <index id="68" parent="15" name="fk_course_id">
       <ColNames>course_id</ColNames>
     </index>
-    <index id="69" parent="15" name="specialization_id">
+    <index id="69" parent="15" name="fk_specialization_id">
       <ColNames>specialization_id</ColNames>
     </index>
     <foreign-key id="70" parent="15" name="courses_specializations_ibfk_1">
@@ -237,10 +237,10 @@ ISO</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="74" parent="16" name="course_id">
+    <index id="74" parent="16" name="fk_course_id">
       <ColNames>course_id</ColNames>
     </index>
-    <index id="75" parent="16" name="teacher_id">
+    <index id="75" parent="16" name="fk_teacher_id">
       <ColNames>teacher_id</ColNames>
     </index>
     <foreign-key id="76" parent="16" name="courses_teachers_ibfk_1">
@@ -271,10 +271,10 @@ ISO</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="81" parent="17" name="details_id">
+    <index id="81" parent="17" name="fk_details_id">
       <ColNames>details_id</ColNames>
     </index>
-    <index id="82" parent="17" name="university_id">
+    <index id="82" parent="17" name="fk_university_id">
       <ColNames>university_id</ColNames>
     </index>
     <key id="83" parent="17" name="PRIMARY">
@@ -436,7 +436,7 @@ web_page</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="115" parent="22" name="specialty_id">
+    <index id="115" parent="22" name="fk_specialty_id">
       <ColNames>specialty_id</ColNames>
     </index>
     <index id="116" parent="22" name="year_of_study">
@@ -529,10 +529,10 @@ web_page</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="135" parent="25" name="group_id">
+    <index id="135" parent="25" name="fk_group_id">
       <ColNames>group_id</ColNames>
     </index>
-    <index id="136" parent="25" name="user_id">
+    <index id="136" parent="25" name="fk_user_id">
       <ColNames>user_id</ColNames>
     </index>
     <key id="137" parent="25" name="PRIMARY">
@@ -590,10 +590,10 @@ web_page</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="148" parent="27" name="teacher_statude_id">
+    <index id="148" parent="27" name="fk_teacher_statude_id">
       <ColNames>teacher_statude_id</ColNames>
     </index>
-    <index id="149" parent="27" name="user_id">
+    <index id="149" parent="27" name="fk_user_id">
       <ColNames>user_id</ColNames>
     </index>
     <key id="150" parent="27" name="PRIMARY">
@@ -628,10 +628,10 @@ web_page</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="156" parent="28" name="adress_id">
+    <index id="156" parent="28" name="fk_adress_id">
       <ColNames>adress_id</ColNames>
     </index>
-    <index id="157" parent="28" name="details_id">
+    <index id="157" parent="28" name="fk_details_id">
       <ColNames>details_id</ColNames>
     </index>
     <key id="158" parent="28" name="PRIMARY">
@@ -660,7 +660,7 @@ web_page</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="163" parent="29" name="role_id">
+    <index id="163" parent="29" name="fk_role_id">
       <ColNames>role_id</ColNames>
     </index>
     <index id="164" parent="29" name="user_id">
@@ -740,10 +740,10 @@ role_id</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="179" parent="30" name="address_id">
+    <index id="179" parent="30" name="fk_address_id">
       <ColNames>address_id</ColNames>
     </index>
-    <index id="180" parent="30" name="gender_id">
+    <index id="180" parent="30" name="fk_gender_id">
       <ColNames>gender_id</ColNames>
     </index>
     <index id="181" parent="30" name="username">
