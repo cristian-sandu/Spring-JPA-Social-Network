@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{DATE}  %method[%-5level] %class , %line,   [%t] - %msg%n"/>
+        </Console>
+
+        <RollingFile name="file-log" fileName="/home/logs/UniversityLog-info.log"
+                     filePattern="/home/logs/UniverLog-info-%d{yyyy-MM-dd}.log">
+
+            <PatternLayout>
+                <pattern>%d{DATE} %method[%-5level] %class , %line, [%t] - %msg%n</pattern>
+            </PatternLayout>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="main.java" level="info" additivity="true">
+            <appender-ref ref="file-log" level="info"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console" level="info"/>
+            <appender-ref ref="file-log" level="info"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

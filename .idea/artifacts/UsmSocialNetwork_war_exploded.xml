@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="UsmSocialNetwork:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/UsmSocialNetwork_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="UsmSocialNetwork/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="UsmSocialNetwork" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
