@@ -18,7 +18,7 @@ CREATE TABLE users (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Genders--------------------------------*/
+/*-------------------------Gender--------------------------------*/
 CREATE TABLE genders (
   id   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   type VARCHAR(20),
@@ -49,7 +49,7 @@ CREATE TABLE user_roles (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Teachers--------------------------------*/
+/*-------------------------Teacher--------------------------------*/
 CREATE TABLE teachers (
   id                 INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   teacher_statude_id INT NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE teacher_statutes (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Students--------------------------------*/
+/*-------------------------Student--------------------------------*/
 CREATE TABLE students (
   id       INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   user_id  INT NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE students (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Courses--------------------------------*/
+/*-------------------------Course--------------------------------*/
 CREATE TABLE courses (
   id      INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name    VARCHAR(255) NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE courses (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Classrooms--------------------------------*/
+/*-------------------------Classroom--------------------------------*/
 CREATE TABLE classrooms (
   id     INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   number INT NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE courses_specializations (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Groups--------------------------------*/
+/*-------------------------Group--------------------------------*/
 CREATE TABLE groups (
   id                INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name              VARCHAR(255) NOT NULL,
@@ -143,7 +143,7 @@ CREATE TABLE groups (
   ENGINE = InnoDB;
 
 
-/*-------------------------Specializations--------------------------------*/
+/*-------------------------Specialization--------------------------------*/
 CREATE TABLE specializations (
   id            INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name          VARCHAR(255) NOT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE specializations (
   ENGINE = InnoDB;
 
 
-/*-------------------------Specialties--------------------------------*/
+/*-------------------------Specialty--------------------------------*/
 CREATE TABLE specialties (
   id         INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name       VARCHAR(255) NOT NULL,
@@ -167,7 +167,7 @@ CREATE TABLE specialties (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Faculties--------------------------------*/
+/*-------------------------Faculty--------------------------------*/
 CREATE TABLE faculties (
   id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   details_id    INT NOT NULL,
@@ -179,7 +179,7 @@ CREATE TABLE faculties (
   ENGINE = InnoDB;
 
 
-/*-------------------------Universities--------------------------------*/
+/*-------------------------University--------------------------------*/
 CREATE TABLE universities (
   id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   details_id INT NOT NULL,
@@ -215,7 +215,7 @@ CREATE TABLE addresses (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Streets--------------------------------*/
+/*-------------------------StreetDAO--------------------------------*/
 CREATE TABLE streets (
   id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name          VARCHAR(255),
@@ -225,7 +225,7 @@ CREATE TABLE streets (
   ENGINE = InnoDB;
 /*ALTER TABLE streets MODIFY COLUMN street_number varchar(20);*/
 
-/*-------------------------Cities--------------------------------*/
+/*-------------------------City--------------------------------*/
 CREATE TABLE cities (
   id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name       VARCHAR(255),
@@ -235,7 +235,7 @@ CREATE TABLE cities (
 )
   ENGINE = InnoDB;
 
-/*-------------------------Countries--------------------------------*/
+/*-------------------------Country--------------------------------*/
 CREATE TABLE countries (
   id            INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   official_name VARCHAR(255),
@@ -281,7 +281,7 @@ INSERT INTO cities VALUES (NULL, ''Tokyo'', 9);
 SELECT *
 FROM cities;
 
-/*Countries with their cities */
+/*Country with their cities */
 SELECT
   countries.official_name,
   cities.name
@@ -354,7 +354,7 @@ SELECT *
 FROM universities;
 
 
-/*------------------INSERT INTO Faculties------------------------*/
+/*------------------INSERT INTO Faculty------------------------*/
 INSERT INTO faculties VALUES (NULL, 5, 1);
 INSERT INTO faculties VALUES (NULL, 6, 2);
 INSERT INTO faculties VALUES (NULL, 7, 3);
@@ -366,7 +366,7 @@ INSERT INTO faculties VALUES (NULL, 5, 3);
 SELECT *
 FROM faculties;
 
-/*------------------INSERT INTO Specialties------------------------*/
+/*------------------INSERT INTO Specialty------------------------*/
 INSERT INTO specialties VALUES (NULL, ''Informatics'', 1);
 INSERT INTO specialties VALUES (NULL, ''Law & Justice'', 2);
 INSERT INTO specialties VALUES (NULL, ''Psychology Clinique'', 3);
@@ -379,7 +379,7 @@ INSERT INTO specialties VALUES (NULL, ''MEMORY Reflexes'', 6);
 SELECT *
 FROM specialties;
 
-/*------------------INSERT INTO Specializations------------------------*/
+/*------------------INSERT INTO Specialization------------------------*/
 INSERT INTO specializations VALUES (NULL, ''Programming'', 1, 1);
 INSERT INTO specializations VALUES (NULL, ''Human Rights'', 2, 2);
 INSERT INTO specializations VALUES (NULL, ''Logix'', 3, 3);
@@ -395,7 +395,7 @@ UPDATE specializations
 SET id = 6
 WHERE id = 7;
 
-/*------------------INSERT INTO Groups------------------------*/
+/*------------------INSERT INTO Group------------------------*/
 INSERT INTO groups VALUES (NULL, ''I - 11'', 1);
 INSERT INTO groups VALUES (NULL, ''HR - 23'', 2);
 INSERT INTO groups VALUES (NULL, ''PSH - 31'', 3);
@@ -407,7 +407,7 @@ INSERT INTO groups VALUES (NULL, ''E & F - 24'', 6);
 SELECT *
 FROM groups;
 
-/*------------------INSERT INTO Courses------------------------*/
+/*------------------INSERT INTO Course------------------------*/
 INSERT INTO courses VALUES (NULL, ''Java'', 6);
 INSERT INTO courses VALUES (NULL, ''Rights & Concepts'', 4);
 INSERT INTO courses VALUES (NULL, ''Brain'', 3);
@@ -419,7 +419,7 @@ INSERT INTO courses VALUES (NULL, ''Emotions control'', 3);
 SELECT *
 FROM courses;
 
-/*------------------INSERT INTO Courses-Specializations------------------------*/
+/*------------------INSERT INTO Course-Specialization------------------------*/
 INSERT INTO courses_specializations VALUES (1, 1);
 INSERT INTO courses_specializations VALUES (2, 2);
 INSERT INTO courses_specializations VALUES (2, 6);
@@ -443,7 +443,7 @@ INSERT INTO classrooms (number) VALUES (352);
 SELECT *
 FROM classrooms;
 
-/*------------------INSERT INTO Courses-Rooms------------------------*/
+/*------------------INSERT INTO Course-Rooms------------------------*/
 INSERT INTO courses_rooms VALUES (1, 6);
 INSERT INTO courses_rooms VALUES (1, 4);
 INSERT INTO courses_rooms VALUES (2, 5);
@@ -467,7 +467,7 @@ SELECT *
 FROM teacher_statutes;
 
 
-/*------------------INSERT INTO Teachers------------------------*/
+/*------------------INSERT INTO Teacher------------------------*/
 INSERT INTO teachers VALUES (NULL, 1, 2);
 /* user 2- teacher-Epifanova Irina*/
 
@@ -484,13 +484,13 @@ SELECT *
 FROM teachers;
 
 
-/*------------------INSERT INTO genders------------------------*/
+/*------------------INSERT INTO Gender------------------------*/
 INSERT INTO genders (type) VALUES (''man'');
 INSERT INTO genders (type) VALUES (''woman'');
 
 SELECT *
 FROM genders;
-/*------------------INSERT INTO users------------------------*/
+/*------------------INSERT INTO Users------------------------*/
 
 INSERT INTO users VALUES
   (NULL, ''Sandu_Cristi'', ''number23'', ''Sandu'', ''Cristian'', 1, 01 / 07 / 1996, ''0 - 60 - 47 - 20 - 85'',
