@@ -9,6 +9,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_CLASSROOM")
 @AttributeOverride(name = "id", column = @Column(name = "classroom_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "Classroom.getAll", query = "from  Classroom")
+        })
 public class Classroom extends AbstractBaseModel {
 
     @Column(length = 100, nullable = false)

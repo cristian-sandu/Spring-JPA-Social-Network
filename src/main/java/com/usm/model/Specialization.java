@@ -12,6 +12,10 @@ import javax.persistence.*;
         @AttributeOverride(name = "id", column = @Column(name = "specialization_id")),
         @AttributeOverride(name = "name", column = @Column(name = "specialization_name"))
 })
+@NamedQueries
+        ({
+                @NamedQuery(name = "Specialization.getAll", query = "from  Specialization")
+        })
 public class Specialization extends AbstractNamedEntity {
 
     @Column(nullable = false, unique = false)

@@ -14,6 +14,10 @@ import java.util.Set;
         @AttributeOverride(name = "id", column = @Column(name = "group_id")),
         @AttributeOverride(name = "name", column = @Column(name = "group_name"))
 })
+@NamedQueries
+        ({
+                @NamedQuery(name = "Group.getAll", query = "from  Group")
+        })
 public class Group extends AbstractNamedEntity {
 
     /*Unidirectional ManyToMany mapping, that's the owning side

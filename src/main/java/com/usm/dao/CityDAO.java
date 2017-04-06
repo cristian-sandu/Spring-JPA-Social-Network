@@ -6,6 +6,7 @@ package com.usm.dao;
 
 import com.usm.model.City;
 
+
 public interface CityDAO extends BaseDAO<City> {
 
 }

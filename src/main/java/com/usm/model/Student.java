@@ -9,7 +9,14 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_STUDENT", uniqueConstraints = @UniqueConstraint(columnNames = {"student_id", "user_id"}))
 @AttributeOverride(name = "id", column = @Column(name = "student_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "Student.getAll", query = "from  Student")
+        })
 public class Student extends AbstractBaseModel {
+
+    @Column(columnDefinition = "boolean default false", nullable = true)
+    private Boolean isHead = false;
 
     /*Bidirectional ManyToOne, that's the owning side
     * Many Students can be a part of the same group*/

@@ -8,7 +8,27 @@
     <artifactId>UsmSocialNetwork</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
+    <properties>
+        <springframework.version>4.2.5.RELEASE</springframework.version>
+        <springsecurity.version>4.0.4.RELEASE</springsecurity.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
+    </properties>
+
     <dependencies>
+
+        <!-- Servlet+JSP+JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
         <!--Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -145,13 +165,6 @@
             <version>4.2.2.RELEASE</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.0.0.Alpha1</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -175,7 +188,13 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+        <dependency>
 
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>4.0.4.RELEASE</version>
+        </dependency>
 
     </dependencies>
+
 </project>

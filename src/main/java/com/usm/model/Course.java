@@ -16,6 +16,10 @@ import java.util.Set;
                 @AttributeOverride(name = "id", column = @Column(name = "course_id")),
                 @AttributeOverride(name = "name", column = @Column(name = "course_name"))
         })
+@NamedQueries
+        ({
+                @NamedQuery(name = "Course.getAll", query = "from  Course")
+        })
 public class Course extends AbstractNamedEntity {
 
     @Column(nullable = false)

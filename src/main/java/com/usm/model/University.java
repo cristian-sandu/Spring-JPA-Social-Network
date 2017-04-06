@@ -9,6 +9,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_UNIVERSITY")
 @AttributeOverride(name = "id", column = @Column(name = "university_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "University.getAll", query = "from  University")
+        })
 public class University extends AbstractDescribedEntity {
 
     /*Unidirectional OneToOne, that's the owning side

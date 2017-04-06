@@ -501,3 +501,41 @@ FROM users;
 
 UPDATE users
 SET birthdate =''01 - 07 - 1996'' WHERE id = 1;
+
+
+INSERT INTO t_gender VALUES (1, 'MALE');
+INSERT INTO t_gender VALUES (2, 'FEMALE');
+
+INSERT INTO t_role VALUES (1, 'ADMIN');
+
+INSERT INTO t_city VALUES (1, 'Chisinau', 1);
+INSERT INTO t_country VALUES (1, 'Moldova', 'MD');
+INSERT INTO t_street VALUES (1, 'Stefan Cel Mare', '2012', '20/12');
+INSERT INTO t_adress VALUES (1, 1, 1);
+SELECT *
+FROM t_adress;
+
+INSERT INTO t_user VALUES
+  (1, 'Cristian', 'avatarlink', '10/10/1996', 'sandu.cristian@mail.ru', 'Sandu', '060-47-20-85',
+      '$2a$04$HWzqOcsol2OrungeOJguieKon1UqrRznTHJAIu.hi2j16LO8NOF62', 'Sandu_Cristian',
+      1, 1);
+
+# parola este sandu
+
+SELECT *
+FROM t_user;
+
+INSERT INTO t_user_role VALUES (1, 1);
+
+SELECT *
+FROM t_user_role;
+
+
+UPDATE t_user
+SET password = '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm'
+WHERE user_id = 1;
+
+# parola asta este : abc125
+
+SELECT *
+FROM t_user;

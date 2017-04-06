@@ -12,6 +12,10 @@ import javax.persistence.*;
         @AttributeOverride(name = "id", column = @Column(name = "street_id")),
         @AttributeOverride(name = "name", column = @Column(name = "street_name"))
 })
+@NamedQueries
+        ({
+                @NamedQuery(name = "Street.getAll", query = "from  Street")
+        })
 public class Street extends AbstractNamedEntity {
 
     @Column(nullable = false)
@@ -39,31 +43,4 @@ public class Street extends AbstractNamedEntity {
         this.post_code = post_code;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Street street = (Street) o;
-
-        if (!street_number.equals(street.street_number)) return false;
-        return post_code.equals(street.post_code);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + street_number.hashCode();
-        result = 31 * result + post_code.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "StreetDAO{" +
-                ", street_number='" + street_number + '\'' +
-                ", post_code='" + post_code + '\'' +
-                '}';
-    }
 }

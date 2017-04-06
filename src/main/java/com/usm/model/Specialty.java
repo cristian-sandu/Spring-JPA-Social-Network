@@ -12,6 +12,10 @@ import javax.persistence.*;
         @AttributeOverride(name = "id", column = @Column(name = "specialty_id")),
         @AttributeOverride(name = "name", column = @Column(name = "specialty_name"))
 })
+@NamedQueries
+        ({
+                @NamedQuery(name = "Specialty.getAll", query = "from  Specialty")
+        })
 public class Specialty extends AbstractNamedEntity {
 
     /*Bidirectional ManyToOne, that's the owning side

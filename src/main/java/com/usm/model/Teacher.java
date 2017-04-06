@@ -12,6 +12,10 @@ import java.util.Set;
 @Entity
 @Table(name = "T_TEACHER", uniqueConstraints = @UniqueConstraint(columnNames = {"teacher_id", "user_id"}))
 @AttributeOverride(name = "id", column = @Column(name = "teacher_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "Teacher.getAll", query = "from  Teacher")
+        })
 public class Teacher extends AbstractBaseModel {
 
     /*Bidirectional ManyToMany, that's the owning side

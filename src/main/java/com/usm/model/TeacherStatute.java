@@ -13,6 +13,10 @@ import java.util.Set;
 @Entity
 @Table(name = "T_STATUTE")
 @AttributeOverride(name = "id", column = @Column(name = "statute_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "TeacherStatute.getAll", query = "from  TeacherStatute")
+        })
 public class TeacherStatute extends AbstractBaseModel {
 
     @Column(nullable = false, unique = true)

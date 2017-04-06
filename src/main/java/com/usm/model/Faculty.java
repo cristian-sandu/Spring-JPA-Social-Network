@@ -11,6 +11,10 @@ import java.util.Set;
 @Entity
 @Table(name = "T_FACULTY")
 @AttributeOverride(name = "id", column = @Column(name = "faculty_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "Faculty.getAll", query = "from  Faculty")
+        })
 public class Faculty extends AbstractDescribedEntity {
 
     /*Bidirectional ManyToOne, that's the owning side,

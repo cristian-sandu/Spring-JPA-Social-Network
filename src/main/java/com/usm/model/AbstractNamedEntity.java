@@ -27,6 +27,7 @@ public abstract class AbstractNamedEntity extends AbstractBaseModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         AbstractNamedEntity that = (AbstractNamedEntity) o;
 
@@ -35,7 +36,9 @@ public abstract class AbstractNamedEntity extends AbstractBaseModel {
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        int result = super.hashCode();
+        result = 31 * result + name.hashCode();
+        return result;
     }
 
     @Override

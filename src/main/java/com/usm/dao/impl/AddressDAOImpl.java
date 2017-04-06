@@ -10,15 +10,8 @@ import java.util.List;
  * Created by csandu on 04.04.2017.
  */
 
-@Repository
+@Repository("addressDAO")
 public class AddressDAOImpl extends AbstractBaseDAO<Address> implements AddressDAO {
-    public AddressDAOImpl() {
-        super();
-    }
-
-    public AddressDAOImpl(Class<Address> entityType) {
-        super(entityType);
-    }
 
     @Override
     public Address findById(Long id) {

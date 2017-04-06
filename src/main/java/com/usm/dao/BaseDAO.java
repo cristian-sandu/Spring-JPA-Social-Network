@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface BaseDAO<T extends AbstractBaseModel> {
 
-    //    No acces hmodifiers, default package acces, by Mr. Craciun !
+    //    No access modifiers, default package acces !
 
     T findById(Long id);
 

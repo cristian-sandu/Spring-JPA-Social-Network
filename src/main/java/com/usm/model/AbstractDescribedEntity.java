@@ -70,7 +70,7 @@ public abstract class AbstractDescribedEntity extends AbstractNamedEntity {
     @Override
     public String toString() {
         return "AbstractDescribedEntity{" +
-                ", email='" + email + '\'' +
+                "email='" + email + '\'' +
                 ", office_phone='" + office_phone + '\'' +
                 ", web_page='" + web_page + '\'' +
                 '}';

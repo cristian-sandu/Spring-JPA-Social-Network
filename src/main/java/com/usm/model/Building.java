@@ -18,6 +18,10 @@ import java.util.Set;
         @AttributeOverride(name = "id", column = @Column(name = "building_id")),
         @AttributeOverride(name = "name", column = @Column(name = "building_name"))
 })
+@NamedQueries
+        ({
+                @NamedQuery(name = "Building.getAll", query = "from Building")
+        })
 public class Building extends AbstractNamedEntity {
 
     /*Unidirectional ManyToOne mapping, that's the owning side

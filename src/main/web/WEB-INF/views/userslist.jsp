@@ -26,10 +26,15 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
+
+                <th>birth_date</th>
+                <th>email</th>
+                <th>genders</th>
+                <th>lastName</th>
+                <th>mobile_phone</th>
+                <th>password</th>
+                <th>username</th>
+
                 <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                     <th width="100"></th>
                 </sec:authorize>
@@ -39,20 +44,27 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${users}" var="user">
+            <c:forEach items="${usersList}" var="users">
                 <tr>
-                    <td>${user.username}</td>
-                    <td>${user.firstname}</td>
-                    <td>${user.lastname}</td>
-                    <td>${user.email}</td>
+
+                    <td>${users.birth_date}</td>
+                    <td>${users.email}</td>
+                    <td>${users.genders}</td>
+                    <td>${users.lastName}</td>
+                    <td>${users.mobile_phone}</td>
+                    <td>${users.password}</td>
+                    <td>${users.username}</td>
+
                     <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                         <td><a href="<c:url value='/edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a>
                         </td>
                     </sec:authorize>
+
                     <sec:authorize access="hasRole('ADMIN')">
                         <td><a href="<c:url value='/delete-user-${user.ssoId}' />" class="btn btn-danger custom-width">delete</a>
                         </td>
                     </sec:authorize>
+
                 </tr>
             </c:forEach>
             </tbody>

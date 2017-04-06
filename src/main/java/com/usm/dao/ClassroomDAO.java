@@ -6,5 +6,8 @@ package com.usm.dao;
 
 import com.usm.model.Classroom;
 
+import java.util.List;
+
 public interface ClassroomDAO extends BaseDAO<Classroom> {
+
 }

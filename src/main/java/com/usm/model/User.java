@@ -17,8 +17,11 @@ import java.util.Set;
                 @AttributeOverride(name = "id", column = @Column(name = "user_id")),
                 @AttributeOverride(name = "name", column = @Column(name = "firstName"))
         })
-@NamedQuery(name = "user.getAll", query = "from  User")
-
+@NamedQueries
+        ({
+                @NamedQuery(name = "User.getAll", query = "from  User"),
+                @NamedQuery(name = "User.getUserByUsername", query = "SELECT u FROM User u WHERE u.username = :username")
+        })
 public class User extends AbstractNamedEntity {
 
     @Column(length = 200, nullable = false, unique = true)
@@ -147,55 +150,5 @@ public class User extends AbstractNamedEntity {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        User user = (User) o;
-
-        if (!username.equals(user.username)) return false;
-        if (!password.equals(user.password)) return false;
-        if (!lastName.equals(user.lastName)) return false;
-        if (!genders.equals(user.genders)) return false;
-        if (!birth_date.equals(user.birth_date)) return false;
-        if (!mobile_phone.equals(user.mobile_phone)) return false;
-        if (!email.equals(user.email)) return false;
-        if (avatar != null ? !avatar.equals(user.avatar) : user.avatar != null) return false;
-        if (!address.equals(user.address)) return false;
-        return roles.equals(user.roles);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + username.hashCode();
-        result = 31 * result + password.hashCode();
-        result = 31 * result + lastName.hashCode();
-        result = 31 * result + genders.hashCode();
-        result = 31 * result + birth_date.hashCode();
-        result = 31 * result + mobile_phone.hashCode();
-        result = 31 * result + email.hashCode();
-        result = 31 * result + (avatar != null ? avatar.hashCode() : 0);
-        result = 31 * result + address.hashCode();
-        result = 31 * result + roles.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", genders=" + genders +
-                ", birth_date=" + birth_date +
-                ", mobile_phone='" + mobile_phone + '\'' +
-                ", email='" + email + '\'' +
-                ", address=" + address +
-                ", roles=" + roles +
-                '}';
     }
 }

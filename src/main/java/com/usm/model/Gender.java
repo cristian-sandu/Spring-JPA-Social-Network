@@ -11,6 +11,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_GENDER")
 @AttributeOverride(name = "id", column = @Column(name = "gender_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "Gender.getAll", query = "from  Gender")
+        })
 public class Gender extends AbstractBaseModel {
 
     /*ENUMS !!!!!!!!!!
@@ -30,28 +34,4 @@ public class Gender extends AbstractBaseModel {
         this.gendersType = gendersType;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Gender gender = (Gender) o;
-
-        return gendersType == gender.gendersType;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + gendersType.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Gender{" +
-                "gendersType=" + gendersType +
-                '}';
-    }
 }

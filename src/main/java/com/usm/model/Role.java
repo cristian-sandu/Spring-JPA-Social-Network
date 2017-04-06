@@ -13,6 +13,10 @@ import java.util.Set;
 @Entity
 @Table(name = "T_ROLE")
 @AttributeOverride(name = "id", column = @Column(name = "role_id"))
+@NamedQueries
+        ({
+                @NamedQuery(name = "Role.getAll", query = "from  Role")
+        })
 public class Role extends AbstractBaseModel {
 
     @Column(name = "role_type", nullable = false, unique = true)
@@ -43,31 +47,4 @@ public class Role extends AbstractBaseModel {
         this.users = users;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Role role = (Role) o;
-
-        if (roleType != role.roleType) return false;
-        return users.equals(role.users);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + roleType.hashCode();
-        result = 31 * result + users.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "roleType=" + roleType +
-                ", users=" + users +
-                '}';
-    }
 }

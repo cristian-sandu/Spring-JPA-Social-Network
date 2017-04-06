@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class AbstractBaseModel implements Serializable {
+public abstract class AbstractBaseModel extends Object implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,13 +27,6 @@ public abstract class AbstractBaseModel implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "AbstractBaseModel{" +
-                "id=" + id +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -46,5 +39,12 @@ public abstract class AbstractBaseModel implements Serializable {
     @Override
     public int hashCode() {
         return id.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractBaseModel{" +
+                "id=" + id +
+                '}';
     }
 }
