@@ -1,11 +1,15 @@
 package com.usm.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 
 /*
  * Created by csandu on 3/24/2017.
  */
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "T_ADRESS")
 @AttributeOverride(name = "id", column = @Column(name = "address_id"))
@@ -13,6 +17,7 @@ import javax.persistence.*;
         ({
                 @NamedQuery(name = "Address.getAll", query = "from Address")
         })
+@Data
 public class Address extends AbstractBaseModel {
 
     /*Unidirectional ManyToOne Mapping, that's the owning side
@@ -29,21 +34,4 @@ public class Address extends AbstractBaseModel {
 
     public Address() {
     }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Street getStreet() {
-        return street;
-    }
-
-    public void setStreet(Street street) {
-        this.street = street;
-    }
-
 }

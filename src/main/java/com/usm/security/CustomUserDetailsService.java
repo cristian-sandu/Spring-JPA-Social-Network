@@ -37,7 +37,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         rootLogger.info("Retrieving A valid User with Username =>>  << " + securityUser.getUsername() + " >> and password => " + securityUser.getPassword() + "   from Business Logic");
         /*now if user exists and business logic returns true, it is time to return a real authorized user with valid credentials*/
-        return new org.springframework.security.core.userdetails.User(securityUser.getUsername(), securityUser.getUsername(),
+        return new org.springframework.security.core.userdetails.User(securityUser.getUsername(), securityUser.getPassword(),
                 true, true, true, true, getGrantedAuthorities(securityUser));
     }
 

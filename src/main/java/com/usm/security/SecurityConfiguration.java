@@ -43,30 +43,31 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         rootLogger.info("Entering configure() method of Spring Security");
         http.authorizeRequests()
-                .antMatchers("/welcome", "/")
-                .access("hasRole('ROLE_TEACHER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_STUDENT')")
+                .antMatchers("/", "/welcome")
+                .access("hasRole('TEACHER') or hasRole('ADMIN') or hasRole('STUDENT')")
                 .antMatchers("/userList")
-                .access("hasRole('ROLE_ADMIN')")
-//               .hasAnyRole("TEACHER", "STUDENT", "ANONYMUS", "ADMIN", "DBA")
-                .and()
+                .access("hasRole('ADMIN')").and()
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/welcome")
-                //          .successForwardUrl("/welcome")
-                //          .failureForwardUrl("/login?error")
                 .failureUrl("/login?error")
+//                .successForwardUrl("/welcome")
+//                .failureForwardUrl("/login?error")
                 .usernameParameter("username")
                 .passwordParameter("password").and()
                 .logout()
-                .logoutSuccessUrl("/login?logout").and()
-/*                .rememberMe()
+                .logoutSuccessUrl("/login?logout")
+                /*.logoutUrl("/signout")*/.and()
+                .rememberMe()
                 .rememberMeParameter("remember-me")
                 .tokenRepository(tokenRepository)
-                *//*86400 seconds = 24 hours*//*
-                .tokenValiditySeconds(86400).and()*/
-                .csrf().and()
+/*
+                86400 seconds = 24 hours
+*/
+                .tokenValiditySeconds(86400).and()
                 .exceptionHandling()
-                .accessDeniedPage("/Access_Denied");
+                .accessDeniedPage("/Access_Denied").and()
+                .csrf();
         rootLogger.info("Exiting configure() method of Spring Security");
     }
 

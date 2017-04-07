@@ -1,6 +1,8 @@
 package com.usm.model;
 
 import com.usm.model.enums.GendersType;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
@@ -8,6 +10,7 @@ import javax.persistence.*;
  * Created by csandu on 3/24/2017.
  */
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "T_GENDER")
 @AttributeOverride(name = "id", column = @Column(name = "gender_id"))
@@ -15,6 +18,7 @@ import javax.persistence.*;
         ({
                 @NamedQuery(name = "Gender.getAll", query = "from  Gender")
         })
+@Data
 public class Gender extends AbstractBaseModel {
 
     /*ENUMS !!!!!!!!!!
@@ -25,13 +29,4 @@ public class Gender extends AbstractBaseModel {
 
     public Gender() {
     }
-
-    public GendersType getGendersType() {
-        return gendersType;
-    }
-
-    public void setGendersType(GendersType gendersType) {
-        this.gendersType = gendersType;
-    }
-
 }

@@ -9,6 +9,7 @@ import javax.persistence.*;
  * Created by csandu on 3/24/2017.
  */
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "T_CITY")
 @AttributeOverrides({
@@ -19,6 +20,7 @@ import javax.persistence.*;
         ({
                 @NamedQuery(name = "City.getAll", query = "from  City")
         })
+@Data
 public class City extends AbstractNamedEntity {
 
     /*Bidirectional ManyToOne mapping, that's the owning side
@@ -30,11 +32,4 @@ public class City extends AbstractNamedEntity {
     public City() {
     }
 
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
 }

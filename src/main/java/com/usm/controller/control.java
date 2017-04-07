@@ -4,6 +4,8 @@ import com.usm.model.Role;
 import com.usm.model.User;
 import com.usm.service.RoleService;
 import com.usm.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -41,6 +43,9 @@ public class control {
     @Autowired
     AuthenticationTrustResolver authenticationTrustResolver;
 
+    private static final Logger rootLogger = LogManager.getRootLogger();
+
+
     /**
      * This method will provide UserProfile list to views
      */
@@ -52,6 +57,7 @@ public class control {
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
         model.addAttribute("loggedinuser", getPrincipal());
+        rootLogger.info("NOW CONTROLLER RETURNS / or /welcome");
         return "welcome";
     }
 
@@ -60,7 +66,8 @@ public class control {
         if (isCurrentAuthenticationAnonymous()) {
             return "login";
         } else {
-            return "redirect:/welcome";
+            rootLogger.info("NOW CONTROLLER RETURNS /redirect:/welcome");
+            return "welcome";
         }
     }
 
@@ -70,6 +77,7 @@ public class control {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
@@ -87,6 +95,7 @@ public class control {
         List<User> users = userService.getAll();
         model.addAttribute("usersList", users);
         model.addAttribute("loggedinuser", getPrincipal());
+        rootLogger.info("NOW CONTROLLER RETURNS userslist");
         return "userslist";
     }
 

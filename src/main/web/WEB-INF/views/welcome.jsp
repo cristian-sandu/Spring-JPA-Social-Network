@@ -26,10 +26,7 @@
 <body>
 <div class="graphic-container">
     <div class="alert-danger">
-        Hello_Muthafucker_Your_Name_Is&nbsp;==>&nbsp;&nbsp;&nbsp;<br/>
-        <button class="alert-success">
-            <strong>${loggedinuser}</strong>
-        </button>
+        Hello_Muthafucker_Your_Name_Is&nbsp;==>&nbsp;&nbsp; <sec:authentication property="principal.username"/>
     </div>
     <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
         <a href="#"> You_Are_ADMIN_OR_DBA</a>

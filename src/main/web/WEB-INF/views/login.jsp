@@ -58,12 +58,12 @@
             <div class="col-xs-4 col-md-offset-8">
                 <div class="login" id="card">
                     <div class="front signin_form">
-                        <p>Login Your Account</p>
+                        <p>Login to Your Account</p>
 
 
                         <c:url var="loginUrl" value="/login"/>
 
-                        <form autocomplete="off" class="login-form" action="${loginUrl}"
+                        <form class="login-form" action="${loginUrl}"
                               method="post">
 
 
@@ -84,7 +84,7 @@
                                 <div class="input-group">
                                     <label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
                                     <input type="text" id="username" name="username"
-                                           placeholder="Username" class="form-control" required autocomplete="off"/>
+                                           placeholder="Username" class="form-control" required/>
                                 </div>
                             </div>
 
@@ -94,7 +94,7 @@
 
                                     <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
                                     <input type="password" class="form-control" id="password" name="password"
-                                           placeholder="Password" required autocomplete="off"/>
+                                           placeholder="Password" required/>
                                 </div>
                             </div>
 

@@ -55,7 +55,7 @@ public class UserDAOImpl extends AbstractBaseDAO<User> implements UserDAO {
         query.setParameter("username", username);
         User user = (User) query.getSingleResult();
         if (user != null) {
-            rootLogger.info("Loading User By Username ==>> " + username);
+            rootLogger.info("Loading User By Username from userDAOImpl =>> " + username);
             Hibernate.initialize(user.getRoles());
         }
         return user;

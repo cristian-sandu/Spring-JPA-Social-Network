@@ -4,13 +4,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /*
  * Created by csandu on 3/24/2017.
  */
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "T_COUNTRY")
 @AttributeOverrides
@@ -22,6 +25,7 @@ import java.util.Set;
         ({
                 @NamedQuery(name = "Country.getAll", query = "from  Country")
         })
+@Data
 public class Country extends AbstractNamedEntity {
 
     @Column(nullable = false)
@@ -30,24 +34,8 @@ public class Country extends AbstractNamedEntity {
     /*Bidirectional Mapping, that's the non owning side
     * One country can have many cities*/
     @OneToMany(mappedBy = "country", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, targetEntity = City.class)
-    private Set<City> cities = new HashSet<City>();
+    private List<City> cities = new ArrayList<City>();
 
     public Country() {
-    }
-
-    public String getISO() {
-        return ISO;
-    }
-
-    public void setISO(String ISO) {
-        this.ISO = ISO;
-    }
-
-    public Set<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(Set<City> cities) {
-        this.cities = cities;
     }
 }

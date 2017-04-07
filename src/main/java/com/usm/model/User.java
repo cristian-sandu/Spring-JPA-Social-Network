@@ -4,11 +4,13 @@ package com.usm.model;
  * Created by csandu on 3/24/2017.
  */
 
-import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+import javax.persistence.*;
+import java.util.*;
+
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "T_USER")
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -22,6 +24,7 @@ import java.util.Set;
                 @NamedQuery(name = "User.getAll", query = "from  User"),
                 @NamedQuery(name = "User.getUserByUsername", query = "SELECT u FROM User u WHERE u.username = :username")
         })
+@Data
 public class User extends AbstractNamedEntity {
 
     @Column(length = 200, nullable = false, unique = true)
@@ -67,88 +70,8 @@ public class User extends AbstractNamedEntity {
                     joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
                     inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "role_id")}
             )
-    private Set<Role> roles = new HashSet<Role>();
+    private List<Role> roles = new ArrayList<Role>();
 
     public User() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Gender getGenders() {
-        return genders;
-    }
-
-    public void setGenders(Gender genders) {
-        this.genders = genders;
-    }
-
-    public Date getBirth_date() {
-        return birth_date;
-    }
-
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = birth_date;
-    }
-
-    public String getMobile_phone() {
-        return mobile_phone;
-    }
-
-    public void setMobile_phone(String mobile_phone) {
-        this.mobile_phone = mobile_phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 }
